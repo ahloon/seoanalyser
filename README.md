@@ -10,7 +10,8 @@ Calculate in Meta tag - to count the occurrence of each work in Meta tags in the
 Calculate external Links - to count the occurrence of external links in the textbox or website.
 
 # Installation guide
-Build and run from Visual Studio 2017.
+1. Update node modules by executing npm update in the command line and in the solution's folder.
+2. Build and run from Visual Studio 2017.
 
 # To do
 1. Getting words and meta tags from a website is not working at this moment. The challenge is getting the fetch API to work with URL in its parameter.
