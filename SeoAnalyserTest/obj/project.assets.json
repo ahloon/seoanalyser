@@ -10471,11 +10471,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kah Loon\\Projects\\SeoAnalyser\\SeoAnalyserTest\\SeoAnalyserTest.csproj",
+      "projectUniqueName": "D:\\Kah Loon\\Projects\\seoanalyser\\SeoAnalyserTest\\SeoAnalyserTest.csproj",
       "projectName": "SeoAnalyserTest",
-      "projectPath": "D:\\Kah Loon\\Projects\\SeoAnalyser\\SeoAnalyserTest\\SeoAnalyserTest.csproj",
+      "projectPath": "D:\\Kah Loon\\Projects\\seoanalyser\\SeoAnalyserTest\\SeoAnalyserTest.csproj",
       "packagesPath": "C:\\Users\\Stephanie\\.nuget\\packages\\",
-      "outputPath": "D:\\Kah Loon\\Projects\\SeoAnalyser\\SeoAnalyserTest\\obj\\",
+      "outputPath": "D:\\Kah Loon\\Projects\\seoanalyser\\SeoAnalyserTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10494,8 +10494,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Kah Loon\\Projects\\SeoAnalyser\\SeoAnalyser\\SeoAnalyser.csproj": {
-              "projectPath": "D:\\Kah Loon\\Projects\\SeoAnalyser\\SeoAnalyser\\SeoAnalyser.csproj"
+            "D:\\Kah Loon\\Projects\\seoanalyser\\SeoAnalyser\\SeoAnalyser.csproj": {
+              "projectPath": "D:\\Kah Loon\\Projects\\seoanalyser\\SeoAnalyser\\SeoAnalyser.csproj"
             }
           }
         }

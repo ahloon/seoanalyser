@@ -55,7 +55,7 @@ namespace SeoAnalyser.Services
 
 			var matches = Regex.Matches(processedText, @"\b[\w']*\b");
 			string[] words = matches.Where(match => !string.IsNullOrEmpty(match.Value))
-				.Select(m => m.Value).Where(word => !StopWords.Contains(word)).ToArray();
+				.Select(m => m.Value).Where(word => !StopWords.Contains(word, StringComparer.CurrentCultureIgnoreCase)).ToArray();
 
 			if (OccurencesInPage)
 			{

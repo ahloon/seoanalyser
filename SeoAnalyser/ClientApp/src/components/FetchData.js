@@ -23,7 +23,7 @@ export class FetchData extends Component {
 	displayName = FetchData.name
 	constructor(props) {
 		super(props);
-		this.state = { words: [], loading: true, text: "http://www.google.com", isUrl: false, inPage: false, inMeta: false, external: false, errorMsg: "" };
+		this.state = { words: [], loading: true, text: "The quick brown fox jumps over the lazy dog", isUrl: false, inPage: false, inMeta: false, external: false, errorMsg: "" };
 		this.sortBy.bind(this);
 		this.handleTextChange = this.handleTextChange.bind(this);
 		this.handleChange = this.handleChange.bind(this);
