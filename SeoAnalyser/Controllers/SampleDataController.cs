@@ -8,8 +8,8 @@ namespace SeoAnalyser.Controllers
 	[Route("api/[controller]")]
 	public class SampleDataController : Controller
 	{
-		[HttpGet("[action]/{text}/{isUrl}/{inPage}/{inMeta}/{external}")]
-		public IEnumerable<Result> AnalyserResults(string text, bool isUrl, bool inPage, bool inMeta, bool external)
+		[HttpPost("[action]")]
+		public IEnumerable<Result> AnalyserResults(string text,bool isUrl, bool inPage, bool inMeta, bool external)
 		{
 			Analyser seoAnalyser = new Analyser(text)
 			{

@@ -1,8 +1,10 @@
 ﻿using HtmlAgilityPack;
+using SeoAnalyser.Exceptions;
 using SeoAnalyser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -67,13 +69,15 @@ namespace SeoAnalyser.Services
 
 		private string GetTextFromUrl()
 		{
+			var htmlDoc = new HtmlDocument();
+			var web = new HtmlWeb();
 			try
 			{
-				var web = new HtmlWeb();
-				var htmlDoc = new HtmlDocument();
 				if (IsUrl)
 				{
-					htmlDoc = web.Load(System.Uri.UnescapeDataString(Text));
+					string url = Uri.UnescapeDataString(Text);
+					var request = WebRequest.Create(url);
+					htmlDoc = web.Load(url);
 				}
 				else
 				{
@@ -91,14 +95,29 @@ namespace SeoAnalyser.Services
 					sb.AppendLine(node.InnerText.Trim());
 				}
 
-				
 				return GetFormattedText(htmlDoc, sb);
-
 			}
-			catch (Exception)
+			catch (System.UriFormatException)
 			{
-				throw new System.Net.WebException(Text);
+				throw new InvalidUrlException(Text);
 			}
+			catch (WebException e)
+			{
+
+				if(e.Status == WebExceptionStatus.Timeout)
+				{
+					throw new WebException("Timeout trying to connect to server.");
+				}
+
+				var response = (HttpWebResponse)e.Response;
+				if(response == null || response.StatusCode == HttpStatusCode.NotFound)
+				{
+					throw new InvalidUrlException(Text);
+				}
+
+				throw new WebException(e.Message);
+			}
+
 		}
 
 		private string GetFormattedText(HtmlDocument htmlDoc, StringBuilder sb)

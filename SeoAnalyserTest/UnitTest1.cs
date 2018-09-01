@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SeoAnalyser.Exceptions;
 using SeoAnalyser.Models;
 using SeoAnalyser.Services;
 using System;
@@ -87,11 +88,26 @@ namespace SeoAnalyserTest
 			Assert.AreEqual(2, results[0].Occurrences);
 		}
 
-		[TestMethod, ExpectedException(typeof(System.Net.WebException), "Invalid URL should not be possible.")]
+		[TestMethod, ExpectedException(typeof(InvalidUrlException), "Invalid URL should not be possible.")]
 		public void Analyser_SubmitInvalidUrlOnly_ReturnsInvalidUrlError()
 		{
 			//arrange
 			seoAnalyser = new Analyser("http://www.google1.com")
+			{
+				IsUrl = true
+			};
+
+			//act
+			results = seoAnalyser.Analyse();
+
+			//assert
+		}
+
+		[TestMethod, ExpectedException(typeof(InvalidUrlException), "Invalid URL should not be possible.")]
+		public void Analyser_SubmitTextAsUrl_ReturnsInvalidUrlError()
+		{
+			//arrange
+			seoAnalyser = new Analyser("This is just text.")
 			{
 				IsUrl = true
 			};
